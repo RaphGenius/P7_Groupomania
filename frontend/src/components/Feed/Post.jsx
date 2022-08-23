@@ -3,15 +3,18 @@ import styled from "styled-components";
 import { useState } from "react";
 import { colors } from "../../utils/style/colors";
 import ModifyPost from "./ModifyPost";
+import Likes from "./Likes";
 export default function Post({ post, posts, setPosts }) {
-  const [isModify, setIsModify] = useState(false);
+  // Style
   const StyleContainer = styled.div`
     border: 2px solid ${colors.primary};
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
   `;
-
+  // State
+  const [isModify, setIsModify] = useState(false);
+  // Comportement
   const handleDelete = (id) => {
     // Verifier si on a autorisation
     axios
@@ -30,6 +33,9 @@ export default function Post({ post, posts, setPosts }) {
   const handleModify = () => {
     isModify ? setIsModify(false) : setIsModify(true);
   };
+
+  // Render
+
   return (
     <StyleContainer>
       {isModify ? (
@@ -55,6 +61,7 @@ export default function Post({ post, posts, setPosts }) {
           <br />
           <span>Créé le {post.creationDate}</span>
           <br />
+          <Likes />
         </div>
       )}
     </StyleContainer>

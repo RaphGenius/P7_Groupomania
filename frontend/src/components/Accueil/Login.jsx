@@ -12,6 +12,7 @@ export default function Login() {
       .post("http://localhost:3000/api/auth/login", data)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userId", res.data.userId);
         console.log(res);
       })
       .catch((err) => {
