@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 export default function Login() {
   //state
-
+  const navigate = useNavigate();
   //comportement
   const { register, handleSubmit } = useForm();
 
@@ -12,8 +13,8 @@ export default function Login() {
       .post("http://localhost:3000/api/auth/login", data)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("userId", res.data.userId);
         console.log(res);
+        navigate("/postList");
       })
       .catch((err) => {
         console.log(err);

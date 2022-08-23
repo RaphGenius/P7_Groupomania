@@ -4,7 +4,7 @@ import { useState } from "react";
 import { colors } from "../../utils/style/colors";
 import ModifyPost from "./ModifyPost";
 import Likes from "./Likes";
-export default function Post({ post, posts, setPosts }) {
+export default function Post({ post, posts, setPosts, getPost, user }) {
   // Style
   const StyleContainer = styled.div`
     border: 2px solid ${colors.primary};
@@ -20,10 +20,8 @@ export default function Post({ post, posts, setPosts }) {
     axios
       .delete(`http://localhost:3000/api/publication/${id}`)
       .then((res) => {
-        const newPosts = posts;
-        const newData = newPosts.filter((data) => data._id !== id);
-        setPosts(newData);
         console.log(res);
+        getPost();
       })
       .catch((err) => {
         console.log(err);
@@ -39,7 +37,7 @@ export default function Post({ post, posts, setPosts }) {
   return (
     <StyleContainer>
       {isModify ? (
-        <ModifyPost post={post} setIsModify={setIsModify} />
+        <ModifyPost post={post} setIsModify={setIsModify} getPost={getPost} />
       ) : (
         <div>
           <span>
@@ -49,19 +47,19 @@ export default function Post({ post, posts, setPosts }) {
           <p>Contenue : {post.content}</p>
           <br />
           <br />
-          <button onClick={() => handleDelete(post._id)}>
-            Supprimer le post
-          </button>
-          <br />
-          <br />
+          {post.userId === user._id && (
+            <button onClick={() => handleDelete(post._id)}>
+              Supprimer le post
+            </button>
+          )}
 
-          <button onClick={() => handleModify()}>Modifier</button>
+          {post.userId === user._id && (
+            <button onClick={() => handleModify()}>Modifier</button>
+          )}
 
-          <br />
-          <br />
           <span>Créé le {post.creationDate}</span>
           <br />
-          <Likes />
+          <Likes post={post} />
         </div>
       )}
     </StyleContainer>

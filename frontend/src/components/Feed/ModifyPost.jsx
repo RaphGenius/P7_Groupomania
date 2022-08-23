@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
-export default function ModifyPost({ post, setIsModify }) {
+export default function ModifyPost({ post, setIsModify, getPost }) {
   //State
   const { register, handleSubmit } = useForm();
   console.log(post);
@@ -11,6 +11,7 @@ export default function ModifyPost({ post, setIsModify }) {
       .put(`http://localhost:3000/api/publication/${post._id}`, data)
       .then((res) => {
         console.log(res);
+        getPost();
       })
       .catch((err) => {
         console.log(err);
@@ -23,10 +24,18 @@ export default function ModifyPost({ post, setIsModify }) {
   return (
     <form action="submit" onSubmit={handleSubmit(onModify)}>
       <label htmlFor="firstName"></label>
-      <input type="text" value={post.name} {...register("firstName")} />
+      <input
+        type="text"
+        defaultValue={post.lastName}
+        {...register("firstName")}
+      />
 
       <label htmlFor="lastName"></label>
-      <input type="text" placeholder="Prénom" {...register("lastName")} />
+      <input
+        type="text"
+        defaultValue={post.firstName}
+        {...register("lastName")}
+      />
 
       <label htmlFor="content"></label>
       <input type="text" placeholder="Votre message" {...register("content")} />

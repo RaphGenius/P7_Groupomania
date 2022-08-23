@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/Groupomania Logos/icone_groupomania_color.mini.png";
 import styled from "styled-components";
-import Profil from "../../pages/Profil";
 export default function NavBarPostList({ user }) {
   //Style
 

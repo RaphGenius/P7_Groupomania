@@ -1,15 +1,27 @@
 import "./style.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 export default function Signup() {
   //State
   const { register, handleSubmit } = useForm();
-
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     axios
       .post("http://localhost:3000/api/auth/signup", data)
       .then((res) => {
         console.log(res);
+        axios
+          .post("http://localhost:3000/api/auth/login", data)
+          .then((res) => {
+            localStorage.setItem("token", res.data.token);
+            console.log(res);
+            navigate("/postList");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);

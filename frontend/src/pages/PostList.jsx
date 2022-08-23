@@ -10,7 +10,7 @@ export default function PostList() {
   const { register, handleSubmit } = useForm();
   const [user, setUser] = useState([]);
   //Avoir les publications
-  useEffect(() => {
+  const getPost = () => {
     axios
       .get("http://localhost:3000/api/publication")
       .then((res) => {
@@ -19,14 +19,11 @@ export default function PostList() {
       .catch((err) => {
         console.log(err);
       });
-  }, [setPosts]);
-
-  //avoir le profil utilisateur
-  const userIdOfUser = localStorage.getItem("userId");
-
+  };
   useEffect(() => {
+    getPost();
     axios
-      .get(`http://localhost:3000/api/auth/user/${userIdOfUser}`)
+      .get(`http://localhost:3000/api/auth/user`)
       .then((res) => {
         console.log(res.data);
         setUser(res.data);
@@ -36,16 +33,16 @@ export default function PostList() {
         console.log(err);
       });
   }, []);
+
+  //avoir le profil utilisateur
+
   // Creer un post
   const onSubmit = (data) => {
     axios
       .post("http://localhost:3000/api/publication", data)
       .then((res) => {
         console.log(res);
-        const newPosts = { posts };
-        const newData = { ...newPosts, ...data };
-        console.log(newData);
-        /* setPosts(newData); */
+        getPost();
       })
       .catch((err) => {
         console.log(err);
@@ -67,7 +64,14 @@ export default function PostList() {
           register={register}
         />
         {posts.map((post) => (
-          <Post post={post} posts={posts} setPosts={setPosts} key={post._id} />
+          <Post
+            post={post}
+            posts={posts}
+            setPosts={setPosts}
+            key={post._id}
+            getPost={getPost}
+            user={user}
+          />
         ))}
       </section>
     </div>
