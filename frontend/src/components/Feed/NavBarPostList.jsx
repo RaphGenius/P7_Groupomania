@@ -19,6 +19,9 @@ export default function NavBarPostList({ user }) {
   `;
   // State
 
+  const handleDisconnect = () => {
+    localStorage.clear();
+  };
   // Comportement
 
   //Render
@@ -33,7 +36,10 @@ export default function NavBarPostList({ user }) {
           <NavLink to="/profil" user={user}>
             Profil
           </NavLink>{" "}
-          <NavLink to="disc">Deconnexion</NavLink>{" "}
+          <NavLink to="/postlist">Feed</NavLink>
+          <NavLink to="/login" onClick={handleDisconnect}>
+            Deconnexion
+          </NavLink>{" "}
         </li>
         <li></li>
       </ul>

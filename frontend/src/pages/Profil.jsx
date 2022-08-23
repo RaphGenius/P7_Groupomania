@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import NavBarPostList from "../components/Feed/NavBarPostList";
 const userIdOfUser = localStorage.getItem("userId");
-console.log(userIdOfUser);
 export default function Profil() {
   //style
 
@@ -23,15 +23,25 @@ export default function Profil() {
       });
   }, []);
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:3000/api/auth/user/${userIdOfUser}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   //Render
-
+  console.log(user);
   return (
     <div>
+      <NavBarPostList />
       <h1>Mon profil</h1>
       <p>Prénom : {user.firstname}</p>
       <p>Nom :{user.lastname}</p>
-      <button>Supprimer mon profil </button>
+      <button onClick={handleDelete}>Supprimer mon profil </button>
     </div>
   );
 }

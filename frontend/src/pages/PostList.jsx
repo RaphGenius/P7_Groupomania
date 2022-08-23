@@ -23,7 +23,7 @@ export default function PostList() {
 
   //avoir le profil utilisateur
   const userIdOfUser = localStorage.getItem("userId");
-  console.log(userIdOfUser);
+
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/auth/user/${userIdOfUser}`)
