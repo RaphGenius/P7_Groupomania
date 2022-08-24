@@ -27,18 +27,17 @@ export default function NavBarPostList({ user }) {
   return (
     <StyledNav>
       <div>
-        {" "}
-        <StyledLogo src={logo} alt="Logo" />{" "}
+        <StyledLogo src={logo} alt="Logo" />
       </div>
       <ul>
         <li>
           <NavLink to="/profil" user={user}>
             Profil
-          </NavLink>{" "}
+          </NavLink>
           <NavLink to="/postlist">Feed</NavLink>
           <NavLink to="/login" onClick={handleDisconnect}>
             Deconnexion
-          </NavLink>{" "}
+          </NavLink>
         </li>
         <li></li>
       </ul>

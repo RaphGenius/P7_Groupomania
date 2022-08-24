@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-export default function FormPost({ onSubmit }) {
+export default function FormPost({ onSubmit, user }) {
   const { register, handleSubmit } = useForm();
+  console.log(user);
   return (
     <form action="submit" onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="firstName"></label>

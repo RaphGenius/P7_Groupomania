@@ -62,6 +62,7 @@ export default function PostList() {
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
           register={register}
+          user={user}
         />
         {posts.map((post) => (
           <Post

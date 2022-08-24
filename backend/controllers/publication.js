@@ -24,6 +24,7 @@ exports.createPublication = (req, res, next) => {
       res.status(400).json({ error });
     });
 };
+
 exports.modifyPublication = (req, res, next) => {
   const publicationObject = req.file
     ? {
@@ -36,26 +37,23 @@ exports.modifyPublication = (req, res, next) => {
   delete publicationObject._userId;
   Publication.findOne({ _id: req.params.id })
     .then((publication) => {
-      if (publication.userId != req.auth.userId) {
-        res.status(400).json({ message: "Non-autorisé" });
-      } else {
+      if (publication.userId === req.auth.userId || req.auth.admin === true) {
         Publication.updateOne(
           { _id: req.params.id },
           { ...publicationObject, _id: req.params.id }
         )
           .then(() => res.status(200).json({ message: "objet modifié" }))
           .catch((error) => ({ error }));
+      } else {
+        res.status(400).json({ message: "Non-autorisé" });
       }
     })
     .catch((error) => res.status(400).json({ error }));
 };
-
 exports.deletePublication = (req, res, next) => {
   Publication.findOne({ _id: req.params.id })
     .then((publication) => {
-      if (publication.userId != req.auth.userId) {
-        res.status(401).json({ message: "Non authorisé " });
-      } else {
+      if (publication.userId === req.auth.userId || req.auth.admin === true) {
         const filename = publication.imageUrl.split("/image/")[1];
         fs.unlink(`image/${filename}`, () => {
           Publication.deleteOne({ _id: req.params.id })
@@ -64,11 +62,12 @@ exports.deletePublication = (req, res, next) => {
             })
             .catch((error) => res.status(401).json({ error }));
         });
+      } else {
+        res.status(401).json({ message: "Non authorisé " });
       }
     })
     .catch((error) => res.status(500).json(console.log(error)));
 };
-
 exports.getOnePublication = (req, res, next) => {
   // Permet de voir une publication avec son id ////  :id indique à express que c'est dynamique
   Publication.findOne({ _id: req.params.id }) // .findOne permet de trouver un élément à l'aide d'un paramètre

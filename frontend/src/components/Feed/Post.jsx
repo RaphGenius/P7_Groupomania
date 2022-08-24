@@ -47,19 +47,19 @@ export default function Post({ post, posts, setPosts, getPost, user }) {
           <p>Contenue : {post.content}</p>
           <br />
           <br />
-          {post.userId === user._id && (
+          {(post.userId === user._id || user.admin === true) && (
             <button onClick={() => handleDelete(post._id)}>
               Supprimer le post
             </button>
           )}
 
-          {post.userId === user._id && (
+          {(post.userId === user._id || user.admin === true) && (
             <button onClick={() => handleModify()}>Modifier</button>
           )}
 
           <span>Créé le {post.creationDate}</span>
           <br />
-          <Likes post={post} />
+          <Likes post={post} user={user} />
         </div>
       )}
     </StyleContainer>
