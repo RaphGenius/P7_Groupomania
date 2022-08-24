@@ -1,0 +1,11 @@
+.containerPostlist {
+}
+.allPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  padding: 0px 10%;
+  font-size: 20px;
+}

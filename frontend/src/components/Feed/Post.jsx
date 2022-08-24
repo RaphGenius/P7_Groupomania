@@ -1,17 +1,10 @@
 import axios from "axios";
-import styled from "styled-components";
+
 import { useState } from "react";
-import { colors } from "../../utils/style/colors";
+
 import ModifyPost from "./ModifyPost";
 import Likes from "./Likes";
-export default function Post({ post, posts, setPosts, getPost, user }) {
-  // Style
-  const StyleContainer = styled.div`
-    border: 2px solid ${colors.primary};
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-  `;
+export default function Post({ post, getPost, user }) {
   // State
   const [isModify, setIsModify] = useState(false);
   // Comportement
@@ -35,33 +28,40 @@ export default function Post({ post, posts, setPosts, getPost, user }) {
   // Render
 
   return (
-    <StyleContainer>
+    <div className="container-post">
       {isModify ? (
         <ModifyPost post={post} setIsModify={setIsModify} getPost={getPost} />
       ) : (
         <div>
-          <span>
-            Nom :{post.firstName}
-            Prénom : {post.lastName}
-          </span>
-          <p>Contenue : {post.content}</p>
-          <br />
-          <br />
-          {(post.userId === user._id || user.admin === true) && (
-            <button onClick={() => handleDelete(post._id)}>
-              Supprimer le post
-            </button>
-          )}
+          <div className="container-user">
+            <p className="creator-post">
+              {post.firstName} {post.lastName}
+            </p>
+            <span>Créé le {post.creationDate}</span>
+          </div>
 
-          {(post.userId === user._id || user.admin === true) && (
-            <button onClick={() => handleModify()}>Modifier</button>
-          )}
+          <div className="content-post">
+            <p>{post.content}</p>
+          </div>
 
-          <span>Créé le {post.creationDate}</span>
+          <p>Mon image : {post.imageUrl}</p>
           <br />
-          <Likes post={post} user={user} />
+          <div className="container-interact-post">
+            {" "}
+            <Likes post={post} user={user} />
+            {(post.userId === user._id || user.admin === true) && (
+              <button onClick={() => handleModify()}>Modifier</button>
+            )}
+            {(post.userId === user._id || user.admin === true) && (
+              <button onClick={() => handleDelete(post._id)}>
+                Supprimer le post
+              </button>
+            )}
+          </div>
+
+          <br />
         </div>
       )}
-    </StyleContainer>
+    </div>
   );
 }

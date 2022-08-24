@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 export default function Login() {
   //state
   const navigate = useNavigate();
@@ -42,7 +41,6 @@ export default function Login() {
           <button type="submit" id="submitbtn">
             Connexion
           </button>
-          <Link to="/postlist">Vers postlist</Link>
         </div>
       </form>
     </div>

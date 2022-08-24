@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/Groupomania Logos/icone_groupomania_color.mini.png";
 import styled from "styled-components";
+
 export default function NavBarPostList({ user }) {
   //Style
 
@@ -35,11 +36,10 @@ export default function NavBarPostList({ user }) {
             Profil
           </NavLink>
           <NavLink to="/postlist">Feed</NavLink>
-          <NavLink to="/login" onClick={handleDisconnect}>
+          <NavLink to="/" onClick={handleDisconnect}>
             Deconnexion
           </NavLink>
         </li>
-        <li></li>
       </ul>
     </StyledNav>
   );

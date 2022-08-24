@@ -2,7 +2,7 @@ import "./style.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import NavBar from "./Navbar";
 export default function Signup() {
   //State
   const { register, handleSubmit } = useForm();
@@ -33,6 +33,7 @@ export default function Signup() {
 
   return (
     <div className="container">
+      <NavBar />
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         <h1 className="title">Creer un compte</h1>
         <div className="container-button">
