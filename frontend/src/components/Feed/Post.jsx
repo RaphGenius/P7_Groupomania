@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import photo from "../../assets/hubble/galaxy.jpg";
 import { useState } from "react";
 
 import ModifyPost from "./ModifyPost";
@@ -37,29 +37,32 @@ export default function Post({ post, getPost, user }) {
             <p className="creator-post">
               {post.firstName} {post.lastName}
             </p>
-            <span>Créé le {post.creationDate}</span>
+            <span className="creationDate">Créé le {post.creationDate}</span>
           </div>
 
           <div className="content-post">
             <p>{post.content}</p>
           </div>
 
-          <p>Mon image : {post.imageUrl}</p>
-          <br />
+          {/* <p>Mon image : {post.imageUrl}</p> */}
+          <div className="picture-post">
+            <img className="picture" src={photo} alt="salut" />
+          </div>
           <div className="container-interact-post">
-            {" "}
-            <Likes post={post} user={user} />
             {(post.userId === user._id || user.admin === true) && (
-              <button onClick={() => handleModify()}>Modifier</button>
+              <button className="btn" onClick={() => handleModify()}>
+                Modifier
+              </button>
             )}
+            <div className="likeBox">
+              <Likes post={post} user={user} getPost={getPost} />
+            </div>
             {(post.userId === user._id || user.admin === true) && (
-              <button onClick={() => handleDelete(post._id)}>
+              <button className="btn" onClick={() => handleDelete(post._id)}>
                 Supprimer le post
               </button>
             )}
           </div>
-
-          <br />
         </div>
       )}
     </div>

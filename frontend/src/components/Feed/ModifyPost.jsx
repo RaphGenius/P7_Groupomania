@@ -23,20 +23,6 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
   //Render
   return (
     <form action="submit" onSubmit={handleSubmit(onModify)}>
-      <label htmlFor="firstName"></label>
-      <input
-        type="text"
-        defaultValue={post.lastName}
-        {...register("firstName")}
-      />
-
-      <label htmlFor="lastName"></label>
-      <input
-        type="text"
-        defaultValue={post.firstName}
-        {...register("lastName")}
-      />
-
       <label htmlFor="content"></label>
       <input type="text" placeholder="Votre message" {...register("content")} />
 

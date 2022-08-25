@@ -1,17 +1,17 @@
 @import "../src//components/Feed/Style/post.css";
 @import "../src/pages/Styles/PostList.css";
+@import "../src/components/Feed/Style/navBarPostList.css";
+@import "../src/components/Feed/Style/formPost.css";
+@import "../src/components/Feed/Style/likes.css";
+* {
+  font-family: "lato";
+  scrollbar-width: 20px;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  scrollbar-width: 200px;
 }
 
 html,

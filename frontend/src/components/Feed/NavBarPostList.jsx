@@ -1,24 +1,11 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/Groupomania Logos/icone_groupomania_color.mini.png";
-import styled from "styled-components";
+import logo from "../../assets/Groupomania Logos/groupomania_transparentr.png";
 
 export default function NavBarPostList({ user }) {
-  //Style
-
-  const StyledLogo = styled.img`
-    width: 150px;
-    height: 100px;
-  `;
-  const StyledNav = styled.nav`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid orange;
-    border-radius: 10px;
-    padding: 0px;
-  `;
   // State
-
+  const lienPost = "/postlist";
+  const windowLoc = window.location.pathname;
+  console.log(windowLoc);
   const handleDisconnect = () => {
     localStorage.clear();
   };
@@ -26,21 +13,40 @@ export default function NavBarPostList({ user }) {
 
   //Render
   return (
-    <StyledNav>
-      <div>
-        <StyledLogo src={logo} alt="Logo" />
+    <nav className="navPostList">
+      {windowLoc === lienPost ? (
+        <div className="trente"></div>
+      ) : (
+        <div className="trente">
+          {" "}
+          <NavLink to="/postlist" className={"lienNavBar"}>
+            Back
+          </NavLink>
+        </div>
+      )}
+      <div className="trente">
+        <img src={logo} alt="Logo" className="logoPostList" />
       </div>
-      <ul>
-        <li>
-          <NavLink to="/profil" user={user}>
-            Profil
-          </NavLink>
-          <NavLink to="/postlist">Feed</NavLink>
-          <NavLink to="/" onClick={handleDisconnect}>
-            Deconnexion
-          </NavLink>
-        </li>
-      </ul>
-    </StyledNav>
+      <div className="trente">
+        <ul className="listNavBar">
+          <li className="elementNavBar">
+            <NavLink to="/profil" user={user} className={"lienNavBar"}>
+              Profil
+            </NavLink>
+          </li>
+          <li className="elementNavBar">
+            {" "}
+            <NavLink to="/postlist" className={"lienNavBar"}>
+              Feed
+            </NavLink>
+          </li>
+          <li className="elementNavBar">
+            <NavLink to="/" onClick={handleDisconnect} className={"lienNavBar"}>
+              Deconnexion
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }

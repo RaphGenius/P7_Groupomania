@@ -28,17 +28,7 @@ input {
   display: flex;
   justify-content: center;
 }
-button {
-  border: none;
-  background-color: #fd2d01;
-  color: white;
-  border-radius: 10px;
-  text-align: center;
-}
-button:hover {
-  box-shadow: 3px 3px 10px #ffd7d7;
-  color: #ffd7d7;
-}
+
 label {
   text-align: center;
 }

@@ -13,6 +13,7 @@ export default function PostList() {
       .get("http://localhost:3000/api/publication")
       .then((res) => {
         setPosts(res.data);
+        console.log("GetPost a été utilisée");
       })
       .catch((err) => {
         console.log(err);
@@ -23,7 +24,6 @@ export default function PostList() {
     axios
       .get(`http://localhost:3000/api/auth/user`)
       .then((res) => {
-        console.log(res.data);
         setUser(res.data);
         return;
       })
@@ -38,12 +38,9 @@ export default function PostList() {
   return (
     <div className="containerPostlist">
       <NavBarPostList user={user} />
-      <div className="allPost">
-        <h2>
-          Souhaite tu écrire un gentil mot à tes collègues {user.firstname} ?
-        </h2>
-        <section>
-          <FormPost user={user} getPost={getPost} />
+      <div className="postAndForm">
+        <FormPost user={user} getPost={getPost} />
+        <section className="allPosts">
           {posts.map((post) => (
             <Post post={post} key={post._id} getPost={getPost} user={user} />
           ))}

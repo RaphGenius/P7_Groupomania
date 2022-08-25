@@ -1,11 +1,15 @@
-.containerPostlist {
-}
-.allPost {
+.postAndForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1000px;
-  padding: 0px 10%;
   font-size: 20px;
+  /* background: linear-gradient(white, wheat); */
+  background: linear-gradient(white, white);
+}
+.allPosts {
+  display: flex;
+  flex-direction: column-reverse;
+  max-width: 800px;
+  width: 100%;
 }

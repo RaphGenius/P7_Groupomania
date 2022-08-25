@@ -5,7 +5,6 @@ const mouth = new Date().getMonth() + 1;
 const day = new Date().getDay();
 const date = `${day}/${mouth}/${years}`;
 exports.createPublication = (req, res, next) => {
-  console.log("======== Mon req" + req);
   const publicationObject = req.body;
   delete publicationObject._id;
   delete publicationObject._userId;
@@ -13,7 +12,7 @@ exports.createPublication = (req, res, next) => {
     ...publicationObject,
     userId: req.auth.userId,
     creationDate: date,
-    /*  imageUrl: `${req.protocol}://${req.get("host")}/image/${req.file.filename}`, */
+    /* imageUrl: `${req.protocol}://${req.get("host")}/image/${req.file.filename}`, */
   });
   publication
     .save()

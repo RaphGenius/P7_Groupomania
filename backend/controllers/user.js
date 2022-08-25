@@ -12,7 +12,6 @@ exports.signup = (req, res, next) => {
         lastname: req.body.lastname,
         firstname: req.body.firstname,
       });
-      console.log(user);
       user
         .save() // On enregistre l'utilisateur dans la base de donnée
         .then(() => res.status(201).json({ message: "Utilisateur crée" }))
