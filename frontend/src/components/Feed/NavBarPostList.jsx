@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/Groupomania Logos/groupomania_transparentr.png";
-import userLogo from "../../utils/Icones/user-solid.svg";
+/* import userLogo from "../../utils/Icones/user-solid.svg"; */
 export default function NavBarPostList({ user }) {
   // State
   const lienPost = "/postlist";

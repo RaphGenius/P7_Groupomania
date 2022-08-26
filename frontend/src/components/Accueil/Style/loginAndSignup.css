@@ -2,22 +2,25 @@
   border: 2px solid #fd2d01;
   padding: 10px;
   border-radius: 20px;
-  margin-top: 10px;
 }
 .title {
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 5px;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  color: #fd2d01;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #4e5166;
+  margin-bottom: 15px;
 }
 
 .container-button {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+}
+.container-btn.input {
+  margin-top: 50px;
 }
 input {
   border: 3px solid #ffd7d7;
@@ -28,7 +31,14 @@ input {
   display: flex;
   justify-content: center;
 }
-
-label {
+.info-user-acueil {
+  font-size: 20px;
+  color: #4e5166;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.notSign {
+  margin-top: 10px;
+  width: 100%;
   text-align: center;
 }

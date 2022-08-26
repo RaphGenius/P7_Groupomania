@@ -5,23 +5,24 @@
 .all-accueil {
   display: flex;
   flex-wrap: nowrap;
+  gap: 50px;
+  margin: 20px 30px 0px 30px;
 }
 
 .container-infogroupo {
   width: 50%;
   height: auto;
-  border: red 2px solid;
+  border: #ffd7d7 2px solid;
 }
 
 .container-logsign {
   width: 50%;
   height: auto;
-  border: black 2px solid;
 }
 
 .container-logoAccueil {
   width: 100%;
-  border: 2px solid black;
+  border-bottom: 2px solid #4e5166;
 }
 
 .image-accueil {

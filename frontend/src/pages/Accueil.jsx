@@ -2,10 +2,11 @@ import Login from "../components/Accueil/Login";
 import Signup from "../components/Accueil/Signup";
 import logo from "../assets/Groupomania Logos/groupomania_transparentr.png";
 import NavBarAccueil from "../components/Accueil/NavBarAccueil";
+import { useState } from "react";
 
 export default function Accueil() {
   //state
-
+  const [isLogin, setIsLogin] = useState(true);
   // Comportement
 
   //render
@@ -23,8 +24,11 @@ export default function Accueil() {
           </h2>
         </div>
         <div className="container-logsign">
-          <Login />
-          <Signup />
+          {isLogin ? (
+            <Login isLogin={isLogin} setIsLogin={setIsLogin} />
+          ) : (
+            <Signup isLogin={isLogin} setIsLogin={setIsLogin} />
+          )}
         </div>
       </div>
     </div>

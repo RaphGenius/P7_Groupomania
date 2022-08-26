@@ -2,10 +2,12 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Signup({ isLogin, setIsLogin }) {
   //State
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+
+  //Comportement
   const onSubmit = (data) => {
     axios
       .post("http://localhost:3000/api/auth/signup", data)
@@ -26,8 +28,9 @@ export default function Signup() {
         console.log(err);
       });
   };
-  //Comportement
-
+  const handleLogin = () => {
+    setIsLogin(true);
+  };
   //Render
 
   return (
@@ -69,6 +72,13 @@ export default function Signup() {
           <button type="submit">Créer un compte</button>
         </div>
       </form>
+      <button
+        onClick={() => {
+          handleLogin();
+        }}
+      >
+        J'ai déjà un compte
+      </button>
     </div>
   );
 }
