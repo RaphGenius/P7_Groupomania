@@ -3,6 +3,10 @@
 @import "../src/components/Feed/Style/navBarPostList.css";
 @import "../src/components/Feed/Style/formPost.css";
 @import "../src/components/Feed/Style/likes.css";
+@import "../src/components/Profil/Style/cardProfil.css";
+@import "../src/pages/Styles/accueil.css";
+@import "../src/components/Accueil/Style/loginAndSignup.css";
+@import "../src/components/Accueil/Style/navBarAccueil.css";
 * {
   font-family: "lato";
   scrollbar-width: 20px;

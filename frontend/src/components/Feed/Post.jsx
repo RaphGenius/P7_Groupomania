@@ -30,7 +30,12 @@ export default function Post({ post, getPost, user }) {
   return (
     <div className="container-post">
       {isModify ? (
-        <ModifyPost post={post} setIsModify={setIsModify} getPost={getPost} />
+        <ModifyPost
+          post={post}
+          setIsModify={setIsModify}
+          getPost={getPost}
+          user={user}
+        />
       ) : (
         <div>
           <div className="container-user">

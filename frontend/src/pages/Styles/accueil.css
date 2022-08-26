@@ -1,0 +1,31 @@
+.container-acueil {
+  overflow-y: hidden;
+}
+
+.all-accueil {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.container-infogroupo {
+  width: 50%;
+  height: auto;
+  border: red 2px solid;
+}
+
+.container-logsign {
+  width: 50%;
+  height: auto;
+  border: black 2px solid;
+}
+
+.container-logoAccueil {
+  width: 100%;
+  border: 2px solid black;
+}
+
+.image-accueil {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}

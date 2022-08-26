@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavBarPostList from "../components/Feed/NavBarPostList";
+import CardProfil from "../components/Profil/CardProfil";
 
 export default function Profil() {
   //style
@@ -25,28 +26,12 @@ export default function Profil() {
       });
   }, []);
 
-  const handleDelete = () => {
-    axios
-      .delete(`http://localhost:3000/api/auth/user/`)
-      .then((res) => {
-        console.log(res);
-        localStorage.clear();
-        navigate("/login");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   console.log(user);
   //Render
   return (
     <div>
       <NavBarPostList />
-      <h1>Mon profil</h1>
-      <p>Prénom : {user.firstname}</p>
-      <p>Nom :{user.lastname}</p>
-      <button onClick={handleDelete}>Supprimer mon profil </button>
+      <CardProfil user={user} navigate={navigate} />
     </div>
   );
 }

@@ -48,6 +48,7 @@ export default function FormPost({ user, getPost }) {
           placeholder="Votre message"
           className="message-formpost"
           maxLength={240}
+          required
           {...register("content")}
         />
         <label htmlFor="imageUrl"></label>

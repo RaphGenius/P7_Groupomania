@@ -52,3 +52,9 @@
   padding: 5px 5px;
   border-radius: 5px;
 }
+
+.bg-pink {
+  background-color: transparent;
+  border: 1px black solid;
+  width: 100%;
+}

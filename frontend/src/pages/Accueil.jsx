@@ -1,28 +1,32 @@
-import NavBar from "../components/Accueil/Navbar";
-import styled from "styled-components";
 import Login from "../components/Accueil/Login";
 import Signup from "../components/Accueil/Signup";
-/* import Logo from "../assets/Groupomania Logos/icone_groupomania_color.mini.png"; */
+import logo from "../assets/Groupomania Logos/groupomania_transparentr.png";
+import NavBarAccueil from "../components/Accueil/NavBarAccueil";
+
 export default function Accueil() {
   //state
-  const StyledAll = styled.div`
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
 
-  /*   const StyledLogo = styled.img`
-    border: 2px solid;
-  `; */
   // Comportement
 
   //render
   return (
-    <StyledAll>
-      <NavBar />
-      <Login />
-      <Signup />
-    </StyledAll>
+    <div className="container-acueil">
+      <NavBarAccueil />
+      <div className="all-accueil">
+        <div className="container-infogroupo">
+          <div className="container-logoAccueil">
+            <img className="image-accueil" src={logo} alt="" />
+          </div>
+          <h2>
+            Groupomania, votre réseau social pour partager avec vos
+            collaborateurs
+          </h2>
+        </div>
+        <div className="container-logsign">
+          <Login />
+          <Signup />
+        </div>
+      </div>
+    </div>
   );
 }

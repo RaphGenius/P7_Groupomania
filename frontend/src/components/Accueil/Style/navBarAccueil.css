@@ -1,0 +1,25 @@
+.nav-accueil {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: hidden;
+}
+.container-logo-accueil {
+}
+.logoAccueil {
+  object-fit: cover;
+  width: 300px;
+  height: 100px;
+  animation: scrollLogo 10s linear infinite;
+}
+
+@keyframes scrollLogo {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -34,6 +34,7 @@ export default function Login() {
           <input
             type="password"
             placeholder="Mot de passe"
+            autoComplete="on"
             {...register("password")}
           />
         </div>
