@@ -15,7 +15,7 @@ export default function Login({ isLogin, setIsLogin }) {
         localStorage.clear();
         localStorage.setItem("token", res.data.token);
         console.log(res);
-        navigate("/postList");
+        navigate("/postlist");
       })
       .catch((err) => {
         console.log(err);
@@ -36,7 +36,7 @@ export default function Login({ isLogin, setIsLogin }) {
             htmlFor="email"
             aria-label="email"
             id="email"
-            className="info-user-acueil"
+            className="info-user-accueil"
           >
             Adresse Mail
           </label>
@@ -51,7 +51,7 @@ export default function Login({ isLogin, setIsLogin }) {
             htmlFor="password"
             id="password"
             aria-label="password"
-            className="info-user-acueil"
+            className="info-user-accueil"
           >
             Mot de passe
           </label>

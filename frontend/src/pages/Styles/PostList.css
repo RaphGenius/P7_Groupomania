@@ -5,7 +5,7 @@
   align-items: center;
   font-size: 20px;
   /* background: linear-gradient(white, wheat); */
-  background: linear-gradient(white, white);
+  background: linear-gradient(#ffd7d756, #4e516649);
 }
 .allPosts {
   display: flex;

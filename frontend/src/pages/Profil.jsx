@@ -31,7 +31,9 @@ export default function Profil() {
   return (
     <div>
       <NavBarPostList />
-      <CardProfil user={user} navigate={navigate} />
+      <div className="container-profil-page">
+        <CardProfil user={user} navigate={navigate} />
+      </div>
     </div>
   );
 }

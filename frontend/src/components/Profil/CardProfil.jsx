@@ -10,7 +10,7 @@ export default function CardProfil({ user, navigate }) {
       .then((res) => {
         console.log(res);
         localStorage.clear();
-        navigate("/login");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);

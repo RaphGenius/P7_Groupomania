@@ -18,7 +18,7 @@ export default function Signup({ isLogin, setIsLogin }) {
           .then((res) => {
             localStorage.setItem("token", res.data.token);
             console.log(res);
-            navigate("/postList");
+            navigate("/postlist");
           })
           .catch((err) => {
             console.log(err);
@@ -38,46 +38,61 @@ export default function Signup({ isLogin, setIsLogin }) {
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         <h1 className="title">Creer un compte</h1>
         <div className="container-button">
-          <label htmlFor="email">Adresse mail</label>
+          <label htmlFor="email" className="info-user-accueil">
+            Adresse mail
+          </label>
           <input
             type="email"
             placeholder="Email"
             autoComplete="off"
+            className="input-accueil"
             {...register("email")}
           />
 
-          <label htmlFor="password">Mot de passe</label>
+          <label htmlFor="password" className="info-user-accueil">
+            Mot de passe
+          </label>
           <input
             type="password"
             placeholder="Mot de passe"
             autoComplete="off"
+            className="input-accueil"
             {...register("password")}
           />
 
-          <label htmlFor="lastname">Nom de famille</label>
+          <label htmlFor="lastname" className="info-user-accueil">
+            Nom de famille
+          </label>
           <input
             type="lastname"
             placeholder="Nom de famille"
+            className="input-accueil"
             {...register("lastname")}
           />
 
-          <label htmlFor="firstname">Prénom</label>
+          <label htmlFor="firstname" className="info-user-accueil">
+            Prénom
+          </label>
           <input
             type="firstname"
             placeholder="Prénom"
+            className="input-accueil"
             {...register("firstname")}
           />
         </div>
         <div className="container-btn">
-          <button type="submit">Créer un compte</button>
+          <button type="submit" className="btn-accueil">
+            Créer un compte
+          </button>
         </div>
       </form>
       <button
+        className="notSign"
         onClick={() => {
           handleLogin();
         }}
       >
-        J'ai déjà un compte
+        <span className="stillNotSignyp">J'ai déjà un compte !</span>
       </button>
     </div>
   );
