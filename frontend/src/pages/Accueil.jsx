@@ -18,10 +18,12 @@ export default function Accueil() {
           <div className="container-logoAccueil">
             <img className="image-accueil" src={logo} alt="" />
           </div>
-          <h2>
-            Groupomania, votre réseau social pour partager avec vos
-            collaborateurs
-          </h2>
+          <div className="container-info-groupomania">
+            <h2 className="info-groupomania">
+              Groupomania, votre réseau social pour partager avec vos
+              collaborateurs !
+            </h2>
+          </div>
         </div>
         <div className="container-logsign">
           {isLogin ? (

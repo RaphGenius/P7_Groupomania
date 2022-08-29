@@ -42,8 +42,9 @@ export default function Login({ isLogin, setIsLogin }) {
           </label>
           <input
             type="email"
-            placeholder="Email"
+            placeholder="MonMail@mail.com"
             id="email"
+            className="input-accueil"
             {...register("email")}
           />
           <label
@@ -56,25 +57,26 @@ export default function Login({ isLogin, setIsLogin }) {
           </label>
           <input
             type="password"
-            placeholder="Mot de passe"
+            placeholder="Mon mot de passe"
             autoComplete="on"
             id="password"
+            className="input-accueil"
             {...register("password")}
           />
         </div>
         <div className="container-btn">
-          <button type="submit" id="submitbtn">
+          <button type="submit" id="submitbtn" className="btn-accueil">
             Connexion
           </button>
         </div>
       </form>
       <button
-        className="notSign btn"
+        className="notSign"
         onClick={() => {
           handleLogin();
         }}
       >
-        Pas encore inscrit?
+        <span className="stillNotSignyp">Pas encore inscrit?</span>
       </button>
     </div>
   );

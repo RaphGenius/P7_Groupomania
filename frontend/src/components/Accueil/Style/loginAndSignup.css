@@ -10,7 +10,7 @@
   font-size: 25px;
   font-weight: bold;
   text-decoration: underline;
-  color: #4e5166;
+  color: #fd2d01;
   margin-bottom: 15px;
 }
 
@@ -22,18 +22,14 @@
 .container-btn.input {
   margin-top: 50px;
 }
-input {
-  border: 3px solid #ffd7d7;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
+
 .container-btn {
   display: flex;
   justify-content: center;
 }
 .info-user-acueil {
   font-size: 20px;
-  color: #4e5166;
+  color: #fd2d01;
   text-decoration: underline;
   font-weight: bold;
 }
@@ -41,4 +37,27 @@ input {
   margin-top: 10px;
   width: 100%;
   text-align: center;
+  font-style: italic;
+  border: none;
+  background-color: transparent;
+  color: #fd2d01;
+}
+.btn-accueil {
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #fd2d01;
+  padding: 5px 0px;
+  font-weight: bold;
+  color: #fd2d01;
+  transition: all 200ms;
+  background-color: #4e51664b;
+}
+.btn-accueil:hover {
+  background-color: #fd2d01;
+  color: white;
+}
+.stillNotSignyp:hover {
+  cursor: pointer;
+  color: #fd2d01;
+  text-decoration: underline;
 }
