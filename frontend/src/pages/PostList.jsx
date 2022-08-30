@@ -13,7 +13,6 @@ export default function PostList() {
       .get("http://localhost:3000/api/publication")
       .then((res) => {
         setPosts(res.data);
-        console.log("GetPost a été utilisée");
       })
       .catch((err) => {
         console.log(err);

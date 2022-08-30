@@ -1,9 +1,11 @@
 .container-formpost {
+  box-sizing: border-box;
   width: 100%;
   margin-top: 10px;
   padding-bottom: 10px;
   border-bottom: 5px solid #4e5166;
   max-width: 800px;
+  padding: 10px;
 }
 
 .formulaire-formpost {
@@ -12,5 +14,50 @@
   max-width: 800px;
 }
 .message-formpost {
-  height: 100px;
+  padding: 15px;
+  border-radius: 15px;
+  border: 0;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+}
+.publish-btn {
+  border: 2px solid #fd2d01;
+  padding: 5px 0px;
+  font-size: 18px;
+  transition: 100ms ease-in;
+  border-radius: 15px;
+}
+.publish-btn:hover {
+  background-color: #fd2d01;
+  color: white;
+  border-radius: 0px;
+  font-weight: bold;
+}
+.input-file-upload {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.label-file-upload {
+  font-family: "alto";
+  margin: 10px 0px;
+  padding: 5px 0px;
+  text-align: center;
+  cursor: pointer;
+  color: #fd2d01;
+  font-weight: normal;
+  border: 2px solid #fd2d01;
+  transition: 50ms ease-in;
+  border-radius: 15px;
+}
+.label-file-upload:hover {
+  color: white;
+  background-color: #4e5166;
+  font-weight: bold;
+}
+.label-file-upload:active {
+  color: black;
 }

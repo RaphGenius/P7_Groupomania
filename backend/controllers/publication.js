@@ -12,7 +12,7 @@ exports.createPublication = (req, res, next) => {
     ...publicationObject,
     userId: req.auth.userId,
     creationDate: date,
-    /* imageUrl: `${req.protocol}://${req.get("host")}/image/${req.file.filename}`, */
+    imageUrl: `${req.protocol}://${req.get("host")}/image/${req.file.filename}`,
   });
   publication
     .save()
@@ -27,7 +27,7 @@ exports.createPublication = (req, res, next) => {
 exports.modifyPublication = (req, res, next) => {
   const publicationObject = req.file
     ? {
-        ...JSON.parse(req.body.publication),
+        ...req.body,
         imageUrl: `${req.protocol}://${req.get("host")}/image/${
           req.file.filename
         }`,

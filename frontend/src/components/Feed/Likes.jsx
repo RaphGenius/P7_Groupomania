@@ -1,5 +1,5 @@
 import axios from "axios";
-export default function Likes({ post, user, getpost }) {
+export default function Likes({ post, user, getPost }) {
   //Style
 
   //State
@@ -8,7 +8,7 @@ export default function Likes({ post, user, getpost }) {
     axios
       .post(`http://localhost:3000/api/publication/${post._id}/like`)
       .then((res) => {
-        getpost();
+        getPost();
         console.log(res);
       })
       .catch((err) => {
@@ -19,7 +19,7 @@ export default function Likes({ post, user, getpost }) {
   //Render
   return (
     <div className="like-container">
-      <button className="btn" onClick={handleLikes}>
+      <button className="btn hoverpost-post" onClick={handleLikes}>
         Likes
       </button>
       <span className="like-count">{post.likes}</span>

@@ -1,14 +1,17 @@
 import axios from "axios";
+
 import { useForm } from "react-hook-form";
-import photo from "../../assets/hubble/galaxy.jpg";
 export default function ModifyPost({ post, setIsModify, getPost }) {
   //State
   const { register, handleSubmit } = useForm();
-  console.log(post);
+
   //Comportement
   const onModify = (data) => {
+    const formdata = new FormData();
+    formdata.append("content", data.content);
+    formdata.append("image", data.imageUrl[0]);
     axios
-      .put(`http://localhost:3000/api/publication/${post._id}`, data)
+      .put(`http://localhost:3000/api/publication/${post._id}`, formdata)
       .then((res) => {
         console.log(res);
         getPost();
@@ -36,25 +39,36 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
         <div className="content-post">
           <label htmlFor="content"></label>
           <input
-            className="message-formpost bg-pink"
+            className="message-modifyPost bg-pink"
             type="text"
             maxLength={240}
             required
+            defaultValue={post.content}
             placeholder="Votre message"
             {...register("content")}
           />
         </div>
+
         <div className="picture-post">
-          <img className="picture" src={photo} alt="salut" />
+          <img className="picture" src={post.imageUrl} alt="salut" />
         </div>
-        <label htmlFor="imageUrl"></label>
-        <input
-          type="text"
-          placeholder="Modifier image"
-          {...register("imageUrl")}
-        />
-        <button type="submit">Confirmer</button>
-        <button onClick={() => onBack()}>Annuler</button>
+        <div className="container-modify-post">
+          <button type="submit" className="btn hovermodifypost">
+            Confirmer
+          </button>
+          <label htmlFor="file" className="btn hovermodifypost">
+            Modifier image
+          </label>
+          <input
+            type="file"
+            id="file"
+            className="input-file-upload "
+            {...register("imageUrl")}
+          />
+          <button className="btn hovermodifypost" onClick={() => onBack()}>
+            Annuler
+          </button>
+        </div>
       </form>
     </div>
   );

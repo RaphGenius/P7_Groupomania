@@ -1,0 +1,27 @@
+.container-modify-post {
+  display: flex;
+
+  align-items: baseline;
+  justify-content: space-around;
+  padding: 10px;
+}
+.confirmBtn,
+.cancelBtn,
+.label-file-modifyPost {
+  padding: 5px 10px;
+  font-size: 18px;
+}
+.message-modifyPost {
+  border: none;
+  font-size: 18px;
+  padding: 5px 0px;
+  font-style: italic;
+  transition: 3000ms ease all;
+}
+
+.hovermodifypost:hover {
+  transition: 200ms ease;
+  background-color: #fd2d01;
+  color: white;
+  font-weight: bold;
+}

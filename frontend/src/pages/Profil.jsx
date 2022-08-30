@@ -17,7 +17,6 @@ export default function Profil() {
     axios
       .get(`http://localhost:3000/api/auth/user/`)
       .then((res) => {
-        console.log(res.data);
         setUser(res.data);
         return;
       })
@@ -26,7 +25,6 @@ export default function Profil() {
       });
   }, []);
 
-  console.log(user);
   //Render
   return (
     <div>

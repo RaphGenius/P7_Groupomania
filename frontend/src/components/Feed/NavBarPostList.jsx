@@ -5,7 +5,6 @@ export default function NavBarPostList({ user }) {
   // State
   const lienPost = "/postlist";
   const windowLoc = window.location.pathname;
-  console.log(windowLoc);
   const handleDisconnect = () => {
     localStorage.clear();
   };

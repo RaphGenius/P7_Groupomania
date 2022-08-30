@@ -1,29 +1,23 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-/* import { useState } from "react"; */
+
 export default function FormPost({ user, getPost }) {
   //State
   const { register, handleSubmit } = useForm();
-  /*   const [file, setFile] = useState({}); */
 
   // Comportement
 
   const onSubmit = (data) => {
     // On défini nom & prénom
-    const userInformation = {
-      firstName: user.firstname,
-      lastName: user.lastname,
-    };
-    /*     const picture = {
-      imageUrl: file.name,
-    }; */
+    const formdata = new FormData();
+    formdata.append("content", data.content);
+    formdata.append("image", data.imageUrl[0]);
+    formdata.append("firstName", user.firstname);
+    formdata.append("lastName", user.lastname);
+
     // On envoie les informations
     axios
-      .post("http://localhost:3000/api/publication", {
-        ...data,
-        ...userInformation,
-        /*         ...picture, */
-      })
+      .post("http://localhost:3000/api/publication", formdata)
       .then((res) => {
         console.log(res);
         getPost();
@@ -51,23 +45,21 @@ export default function FormPost({ user, getPost }) {
           required
           {...register("content")}
         />
-        <label htmlFor="imageUrl"></label>
-        <input
-          type="text"
-          placeholder="Votre image"
-          {...register("imageUrl")}
-        />
-        {/*  <label htmlFor="imageUrl"></label>
+        <label htmlFor="file" className="label-file-upload">
+          Telecharger une photo
+        </label>
         <input
           type="file"
           name="imageUrl"
+          id="file"
           accept=".png, .jpg, .jpeg"
+          className="input-file-upload"
           {...register("imageUrl")}
-          onChange={(e) => {
-            setFile(e.target.files[0]);
-          }}
-        /> */}
-        <button type="submit">Publier</button>
+        />
+
+        <button type="submit" className="publish-btn">
+          Publier
+        </button>
       </form>
     </div>
   );
