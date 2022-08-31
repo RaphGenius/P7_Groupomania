@@ -47,17 +47,19 @@ export default function Post({ post, getPost, user }) {
           <div className="content-post">
             <p>{post.content}</p>
           </div>
+          {post.imageUrl ? (
+            <div className="picture-post">
+              <img
+                onClick={() => {
+                  window.open(`${post.imageUrl}`, "_blank");
+                }}
+                className="picture"
+                src={post.imageUrl}
+                alt="salut"
+              />
+            </div>
+          ) : null}
 
-          <div className="picture-post">
-            <img
-              onClick={() => {
-                window.open(`${post.imageUrl}`, "_blank");
-              }}
-              className="picture"
-              src={post.imageUrl}
-              alt="salut"
-            />
-          </div>
           <div className="container-interact-post">
             {(post.userId === user._id || user.admin === true) && (
               <button

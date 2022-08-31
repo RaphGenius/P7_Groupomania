@@ -15,6 +15,7 @@
 }
 
 .container-button {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -60,4 +61,24 @@
   cursor: pointer;
   color: #fd2d01;
   text-decoration: underline;
+}
+.errorMsg {
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 18px;
+  color: red;
+}
+
+.infobox {
+  position: absolute;
+  font-size: 15px;
+  top: 90px;
+  left: 115px;
+  width: 15px;
+  height: 15px;
+}
+.interogationPoint {
+  position: absolute;
 }

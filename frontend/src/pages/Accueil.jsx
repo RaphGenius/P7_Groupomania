@@ -27,9 +27,9 @@ export default function Accueil() {
         </div>
         <div className="container-logsign">
           {isLogin ? (
-            <Login isLogin={isLogin} setIsLogin={setIsLogin} />
+            <Login setIsLogin={setIsLogin} />
           ) : (
-            <Signup isLogin={isLogin} setIsLogin={setIsLogin} />
+            <Signup setIsLogin={setIsLogin} />
           )}
         </div>
       </div>

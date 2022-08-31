@@ -20,7 +20,7 @@ export default function Likes({ post, user, getPost }) {
   return (
     <div className="like-container">
       <button className="btn hoverpost-post" onClick={handleLikes}>
-        Likes
+        J'aime !
       </button>
       <span className="like-count">{post.likes}</span>
     </div>

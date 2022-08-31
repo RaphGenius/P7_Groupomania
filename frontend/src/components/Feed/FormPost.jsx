@@ -8,12 +8,12 @@ export default function FormPost({ user, getPost }) {
   // Comportement
 
   const onSubmit = (data) => {
-    // On défini nom & prénom
     const formdata = new FormData();
     formdata.append("content", data.content);
     formdata.append("image", data.imageUrl[0]);
     formdata.append("firstName", user.firstname);
     formdata.append("lastName", user.lastname);
+    console.log(formdata);
 
     // On envoie les informations
     axios

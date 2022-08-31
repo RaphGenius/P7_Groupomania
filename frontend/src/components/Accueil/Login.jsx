@@ -1,24 +1,26 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-export default function Login({ isLogin, setIsLogin }) {
+export default function Login({ setIsLogin }) {
   //state
   const navigate = useNavigate();
-  //comportement
   const { register, handleSubmit } = useForm();
+  const [isLogError, setIsLogError] = useState(false);
+  //comportement
 
   const onSubmit = (data) => {
     axios
       .post("http://localhost:3000/api/auth/login", data)
       .then((res) => {
-        localStorage.clear();
         localStorage.setItem("token", res.data.token);
         console.log(res);
         navigate("/postlist");
       })
       .catch((err) => {
         console.log(err);
+        setIsLogError(true);
       });
   };
 
@@ -38,13 +40,14 @@ export default function Login({ isLogin, setIsLogin }) {
             id="email"
             className="info-user-accueil"
           >
-            Adresse Mail
+            Adresse mail
           </label>
           <input
             type="email"
             placeholder="MonMail@mail.com"
             id="email"
             className="input-accueil"
+            required
             {...register("email")}
           />
           <label
@@ -61,6 +64,7 @@ export default function Login({ isLogin, setIsLogin }) {
             autoComplete="on"
             id="password"
             className="input-accueil"
+            required
             {...register("password")}
           />
         </div>
@@ -69,6 +73,9 @@ export default function Login({ isLogin, setIsLogin }) {
             Connexion
           </button>
         </div>
+        {isLogError ? (
+          <p className="errorMsg">Mail et/ou mot de passe incorrecte</p>
+        ) : null}
       </form>
       <button
         className="notSign"

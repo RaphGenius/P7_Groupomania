@@ -1,15 +1,17 @@
 import axios from "axios";
-
 import { useForm } from "react-hook-form";
+
 export default function ModifyPost({ post, setIsModify, getPost }) {
   //State
   const { register, handleSubmit } = useForm();
 
   //Comportement
   const onModify = (data) => {
+    console.log(data);
     const formdata = new FormData();
     formdata.append("content", data.content);
     formdata.append("image", data.imageUrl[0]);
+    console.log(formdata);
     axios
       .put(`http://localhost:3000/api/publication/${post._id}`, formdata)
       .then((res) => {
@@ -23,9 +25,7 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
         setIsModify(false);
       });
   };
-  const onBack = () => {
-    setIsModify(true);
-  };
+
   //Render
   return (
     <div>
@@ -61,13 +61,12 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
           </label>
           <input
             type="file"
+            name="imageUrl"
             id="file"
+            accept=".png, .jpg, .jpeg"
             className="input-file-upload "
             {...register("imageUrl")}
           />
-          <button className="btn hovermodifypost" onClick={() => onBack()}>
-            Annuler
-          </button>
         </div>
       </form>
     </div>

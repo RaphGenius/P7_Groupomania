@@ -8,7 +8,7 @@ export default function PostList() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState([]);
   //Avoir les publications
-  const getPost = () => {
+  const getPost = async () => {
     axios
       .get("http://localhost:3000/api/publication")
       .then((res) => {

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup({ isLogin, setIsLogin }) {
+export default function Signup({ setIsLogin }) {
   //State
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
@@ -46,20 +46,30 @@ export default function Signup({ isLogin, setIsLogin }) {
             placeholder="Email"
             autoComplete="off"
             className="input-accueil"
+            required
             {...register("email")}
           />
 
           <label htmlFor="password" className="info-user-accueil">
             Mot de passe
           </label>
+          <div className="infobox">
+            <span className="interogationPoint">?</span>
+          </div>
           <input
             type="password"
             placeholder="Mot de passe"
             autoComplete="off"
             className="input-accueil"
+            required
             {...register("password")}
           />
 
+          <span>
+            Votre mot de passe doit contenir entre 8 et 20 caractères, au moins
+            une lettre majuscule et un caractère spécial(@,-,_,etc..) et aucun
+            espace!{" "}
+          </span>
           <label htmlFor="lastname" className="info-user-accueil">
             Nom de famille
           </label>
@@ -67,6 +77,7 @@ export default function Signup({ isLogin, setIsLogin }) {
             type="lastname"
             placeholder="Nom de famille"
             className="input-accueil"
+            required
             {...register("lastname")}
           />
 
@@ -77,6 +88,7 @@ export default function Signup({ isLogin, setIsLogin }) {
             type="firstname"
             placeholder="Prénom"
             className="input-accueil"
+            required
             {...register("firstname")}
           />
         </div>

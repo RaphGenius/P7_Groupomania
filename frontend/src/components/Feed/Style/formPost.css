@@ -29,7 +29,6 @@
 .publish-btn:hover {
   background-color: #fd2d01;
   color: white;
-  border-radius: 0px;
   font-weight: bold;
 }
 .input-file-upload {

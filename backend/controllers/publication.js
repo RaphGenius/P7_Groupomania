@@ -14,6 +14,7 @@ exports.createPublication = (req, res, next) => {
     creationDate: date,
     imageUrl: `${req.protocol}://${req.get("host")}/image/${req.file.filename}`,
   });
+
   publication
     .save()
     .then(() => {
@@ -25,6 +26,7 @@ exports.createPublication = (req, res, next) => {
 };
 
 exports.modifyPublication = (req, res, next) => {
+  console.log("MoN REQ FILE EST ===" + req.file);
   const publicationObject = req.file
     ? {
         ...req.body,
@@ -33,6 +35,7 @@ exports.modifyPublication = (req, res, next) => {
         }`,
       }
     : { ...req.body };
+
   delete publicationObject._userId;
   Publication.findOne({ _id: req.params.id })
     .then((publication) => {
