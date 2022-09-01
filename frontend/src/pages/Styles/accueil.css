@@ -54,3 +54,24 @@
   color: #fd2d01;
   border-color: #fd2d01;
 }
+@media screen and (max-width: 900px) {
+  .all-accueil {
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+  }
+  .image-accueil {
+    height: 120px;
+  }
+  .container-infogroupo {
+    width: 100%;
+  }
+  .container-info-groupomania {
+    padding: 0px;
+    font-size: 15px;
+  }
+  .container-logsign {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+}

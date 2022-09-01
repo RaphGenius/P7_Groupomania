@@ -83,3 +83,14 @@
 .interogationPoint {
   position: absolute;
 }
+@media screen and (max-width: 900px) {
+  .title {
+    font-size: 17px;
+  }
+  .info-user-accueil {
+    font-size: 15px;
+  }
+  .input-accueil {
+    font-size: 15px;
+  }
+}

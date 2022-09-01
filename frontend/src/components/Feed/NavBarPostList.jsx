@@ -12,34 +12,29 @@ export default function NavBarPostList({ user }) {
   //Render
   return (
     <nav className="navPostList">
-      <div className="trente"></div>
+      <img src={logo} alt="Logo" className="logoPostList trente" />
 
-      <div className="trente">
-        <img src={logo} alt="Logo" className="logoPostList" />
-      </div>
-      <div className="trente">
-        <ul className="listNavBar">
-          {windowLoc === lienPost ? (
-            <li className="elementNavBar">
-              <NavLink to="/profil" user={user} className={"lienNavBar"}>
-                Profil
-              </NavLink>
-            </li>
-          ) : (
-            <li className="elementNavBar">
-              <NavLink to="/postlist" className={"lienNavBar"}>
-                Back
-              </NavLink>
-            </li>
-          )}
-
-          <li className="elementNavBar">
-            <NavLink to="/" onClick={handleDisconnect} className={"lienNavBar"}>
-              Deconnexion
+      <ul className="listNavBar trente">
+        {windowLoc === lienPost ? (
+          <li className="elementNavBar backArrow">
+            <NavLink to="/profil" user={user} className={"lienNavBar"}>
+              Profil
             </NavLink>
           </li>
-        </ul>
-      </div>
+        ) : (
+          <li className="elementNavBar">
+            <NavLink to="/postlist" className={"lienNavBar"}>
+              Back
+            </NavLink>
+          </li>
+        )}
+
+        <li className="elementNavBar">
+          <NavLink to="/" onClick={handleDisconnect} className={"lienNavBar"}>
+            Deconnexion
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 }

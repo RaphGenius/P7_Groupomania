@@ -33,3 +33,19 @@
   font-size: 25px;
   color: #fd2d01;
 }
+@media screen and (max-width: 900px) {
+  .navPostList {
+    flex-direction: row-reverse;
+  }
+  .logoPostList {
+  }
+  .trente {
+    width: 50%;
+    max-width: none;
+  }
+  .listNavBar {
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+}
