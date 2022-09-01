@@ -9,31 +9,31 @@ export default function NavBarAccueil() {
     <nav className="navPostList">
       <div className="nav-accueil">
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
         <div>
-          <img src={logo} alt="Logo" className="logoAccueil" />
+          <img src={logo} alt="Logo de Groupomania" className="logoAccueil" />
         </div>
       </div>
     </nav>

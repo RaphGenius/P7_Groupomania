@@ -1,13 +1,15 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Signup({ setIsLogin }) {
   //State
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-
+  const [errorMsg, setErrorMsg] = useState("");
   //Comportement
+
   const onSubmit = (data) => {
     axios
       .post("http://localhost:3000/api/auth/signup", data)
@@ -26,6 +28,8 @@ export default function Signup({ setIsLogin }) {
       })
       .catch((err) => {
         console.log(err);
+        console.log(err.response.data.error);
+        setErrorMsg(err.response.data.error);
       });
   };
   const handleLogin = () => {
@@ -42,6 +46,7 @@ export default function Signup({ setIsLogin }) {
             Adresse mail
           </label>
           <input
+            id="email"
             type="email"
             placeholder="Email"
             autoComplete="off"
@@ -53,10 +58,16 @@ export default function Signup({ setIsLogin }) {
           <label htmlFor="password" className="info-user-accueil">
             Mot de passe
           </label>
-          <div className="infobox">
+          <div
+            className="infobox"
+            title=" Votre mot de passe doit contenir entre 8 et 20 caractères, au moins
+            une lettre majuscule et un caractère spécial(@,-,_,...) et aucun
+            espace!"
+          >
             <span className="interogationPoint">?</span>
           </div>
           <input
+            id="password"
             type="password"
             placeholder="Mot de passe"
             autoComplete="off"
@@ -64,16 +75,11 @@ export default function Signup({ setIsLogin }) {
             required
             {...register("password")}
           />
-
-          <span>
-            Votre mot de passe doit contenir entre 8 et 20 caractères, au moins
-            une lettre majuscule et un caractère spécial(@,-,_,etc..) et aucun
-            espace!{" "}
-          </span>
           <label htmlFor="lastname" className="info-user-accueil">
             Nom de famille
           </label>
           <input
+            id="lastname"
             type="lastname"
             placeholder="Nom de famille"
             className="input-accueil"
@@ -85,6 +91,7 @@ export default function Signup({ setIsLogin }) {
             Prénom
           </label>
           <input
+            id="firstname"
             type="firstname"
             placeholder="Prénom"
             className="input-accueil"
@@ -98,6 +105,7 @@ export default function Signup({ setIsLogin }) {
           </button>
         </div>
       </form>
+      {errorMsg !== "" ? <p className="errorMsg">{errorMsg} </p> : null}
       <button
         className="notSign"
         onClick={() => {

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Accueil/Login";
 import Signup from "./components/Accueil/Signup";
 import PostList from "./pages/PostList";
+import Error from "./pages/Error";
 import axios from "axios";
 import Profil from "./pages/Profil";
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/postlist" element={<PostList />} />
           <Route path="/profil" element={<Profil />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>

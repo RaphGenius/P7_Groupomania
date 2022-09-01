@@ -2,7 +2,7 @@ const passwordValidator = require("password-validator");
 
 const passWordschema = new passwordValidator();
 
-// Mot de passe doit etre entre 8 et 20 caractères, une lettre majuscule et miniscule, 2 caractères digitaux et sans espace
+// Mot de passe doit etre entre 8 et 20 caractères, une lettre majuscule, 1 caractères digital et sans espace
 passWordschema
   .is()
   .min(8)
@@ -21,6 +21,9 @@ module.exports = (req, res, next) => {
     console.log("Mot de passe prend en compte les critères établis");
     next();
   } else {
-    return res.status(400).json({ error: "Mot de passe invalide" });
+    return res.status(400).json({
+      error:
+        "Mot de passe trop faible ! Il doit contenir entre 8 et 20 caractères, une lettre majuscule, 1 caractères digital et sans espace",
+    });
   }
 };

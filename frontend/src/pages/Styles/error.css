@@ -1,0 +1,14 @@
+.container-error {
+  width: auto;
+  margin: 50px auto;
+}
+.msgError-page {
+  text-align: center;
+  font-size: 35px;
+  color: #fd2d01;
+  font-weight: bold;
+}
+.error404 {
+  text-decoration: underline;
+  margin-bottom: 20px;
+}

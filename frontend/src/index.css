@@ -9,6 +9,7 @@
 @import "../src/components/Accueil/Style/navBarAccueil.css";
 @import "../src/pages/Styles/profil.css";
 @import "../src/components/Feed/Style/modifypost.css";
+@import "../src/pages/Styles/error.css";
 * {
   font-family: "lato";
   scrollbar-width: 20px;

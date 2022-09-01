@@ -48,3 +48,7 @@
   justify-content: center;
   width: 100%;
 }
+.info-suppression {
+  font-style: italic;
+  text-decoration: underline;
+}

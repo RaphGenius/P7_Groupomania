@@ -20,7 +20,11 @@ exports.signup = (req, res, next) => {
       user
         .save() // On enregistre l'utilisateur dans la base de donnée
         .then(() => res.status(201).json({ message: "Utilisateur crée" }))
-        .catch((error) => res.status(400).json(console.log(error)));
+        .catch((error) =>
+          res
+            .status(400)
+            .json({ error: "Cette adresse mail est déjà utilisée" })
+        );
     })
     .catch((error) => {
       console.log(error);

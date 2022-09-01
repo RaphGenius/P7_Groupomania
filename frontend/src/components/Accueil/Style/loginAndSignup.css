@@ -78,6 +78,7 @@
   left: 115px;
   width: 15px;
   height: 15px;
+  cursor: pointer;
 }
 .interogationPoint {
   position: absolute;

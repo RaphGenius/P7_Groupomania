@@ -32,6 +32,9 @@ export default function CardProfil({ user, navigate }) {
           <button className="deleteBtn" onClick={handleDelete}>
             Supprimer mon profil
           </button>
+          <span className="info-suppression">
+            Toute supression est definitive
+          </span>
         </div>
       </div>
     </div>
