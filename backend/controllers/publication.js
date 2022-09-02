@@ -72,21 +72,21 @@ exports.deletePublication = (req, res, next) => {
     })
     .catch((error) => res.status(500).json(console.log(error)));
 };
-exports.getOnePublication = (req, res, next) => {
+/* exports.getOnePublication = (req, res, next) => {
   // Permet de voir une publication avec son id ////  :id indique à express que c'est dynamique
   Publication.findOne({ _id: req.params.id }) // .findOne permet de trouver un élément à l'aide d'un paramètre
     .then((publication) => res.status(200).json(publication))
     .catch((error) => res.status(404).json({ error }));
-};
+}; */
 
-exports.getAllPublication = (req, res, next) => {
+exports.getAllPublication = (req, res) => {
   // Permet de voir toutes les publication
   Publication.find()
     .then((publication) => res.status(200).json(publication))
     .catch((error) => res.status(404).json({ error }));
 };
-exports.getAllMyPublication = (req, res, next) => {
-  Publication.find({ _userId: req.params.userId })
+exports.getAllMyPublication = (req, res) => {
+  Publication.find({ userId: req.params.id })
     .then((publication) => res.status(200).json(publication))
     .catch((error) => res.status(404).json({ error }));
 };
