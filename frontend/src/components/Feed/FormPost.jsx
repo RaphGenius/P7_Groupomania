@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-
 export default function FormPost({ user, getPost }) {
   //State
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   // Comportement
 
@@ -21,12 +20,27 @@ export default function FormPost({ user, getPost }) {
       .then((res) => {
         console.log(res);
         getPost();
+        handleReset();
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
+  const handleReset = () => {
+    reset(
+      {
+        content: "",
+      },
+      {
+        keepErrors: true,
+        keepDirty: true,
+        keepIsSubmitted: false,
+        keepTouched: false,
+        keepIsValid: false,
+        keepSubmitCount: false,
+      }
+    );
+  };
   // Render
   return (
     <div className="container-formpost">

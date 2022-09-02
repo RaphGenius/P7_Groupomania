@@ -6,11 +6,10 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
   const { register, handleSubmit } = useForm();
 
   //Comportement
-  const onModify = (data) => {
-    console.log(data);
+  const onSubmit = (data) => {
     const formdata = new FormData();
     formdata.append("content", data.content);
-    formdata.append("image", data.imageUrl[0]);
+    formdata.append("image", data.imageUrl[1]);
     console.log(formdata);
     axios
       .put(`http://localhost:3000/api/publication/${post._id}`, formdata)
@@ -29,7 +28,7 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
   //Render
   return (
     <div>
-      <form action="submit" onSubmit={handleSubmit(onModify)}>
+      <form action="submit" onSubmit={handleSubmit(onSubmit)}>
         <div className="container-user">
           <p className="creator-post">
             {post.firstName} {post.lastName}

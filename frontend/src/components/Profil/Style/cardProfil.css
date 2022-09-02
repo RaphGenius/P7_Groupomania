@@ -1,7 +1,5 @@
-* {
-  font-family: "lato";
-}
 .container-profil {
+  font-family: "lato";
   text-align: center;
   background-color: rgba(255, 0, 0, 0.219);
   margin: 10px auto;
@@ -23,6 +21,8 @@
   flex-direction: column;
   align-items: flex-start;
   margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 5px solid #4e5166;
 }
 .information-user {
   font-size: 30px;
@@ -51,4 +51,15 @@
 .info-suppression {
   font-style: italic;
   text-decoration: underline;
+}
+.mypost-title {
+  margin: 20px 0px 20px;
+  font-size: 45px;
+  font-weight: bold;
+  color: #fd2d01;
+  text-decoration: underline;
+}
+.postContent-profil {
+  text-align: left;
+  font-size: 18px;
 }

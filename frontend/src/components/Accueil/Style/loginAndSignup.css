@@ -93,4 +93,8 @@
   .input-accueil {
     font-size: 15px;
   }
+  .interogationPoint {
+    left: -25px;
+    top: -15px;
+  }
 }

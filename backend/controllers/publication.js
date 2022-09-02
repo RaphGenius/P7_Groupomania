@@ -1,9 +1,11 @@
 const Publication = require("../models/publication");
 const fs = require("fs");
-const years = new Date().getFullYear();
-const mouth = new Date().getMonth() + 1;
-const day = new Date().getDay();
-const date = `${day}/${mouth}/${years}`;
+const moment = require("moment");
+const { log } = require("console");
+moment().format();
+/* const date = `${day}/${mouth}/${years}`; */
+const date = moment().format("Do MMM YYYY");
+
 exports.createPublication = (req, res, next) => {
   const publicationObject = req.body;
   delete publicationObject._id;
@@ -26,7 +28,7 @@ exports.createPublication = (req, res, next) => {
 };
 
 exports.modifyPublication = (req, res, next) => {
-  console.log("MoN REQ FILE EST ===" + req.file);
+  console.log("MON REQ FILE EST ===" + req.file);
   const publicationObject = req.file
     ? {
         ...req.body,
@@ -80,6 +82,11 @@ exports.getOnePublication = (req, res, next) => {
 exports.getAllPublication = (req, res, next) => {
   // Permet de voir toutes les publication
   Publication.find()
+    .then((publication) => res.status(200).json(publication))
+    .catch((error) => res.status(404).json({ error }));
+};
+exports.getAllMyPublication = (req, res, next) => {
+  Publication.find({ _userId: req.params.userId })
     .then((publication) => res.status(200).json(publication))
     .catch((error) => res.status(404).json({ error }));
 };

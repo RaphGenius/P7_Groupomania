@@ -12,7 +12,6 @@ export default function Post({ post, getPost, user }) {
     axios
       .delete(`http://localhost:3000/api/publication/${id}`)
       .then((res) => {
-        console.log(res);
         getPost();
       })
       .catch((err) => {
