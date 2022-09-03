@@ -4,6 +4,7 @@ export default function Likes({ post, user, getPost }) {
 
   //State
   // Comportement
+  // Envoi un +1 au poste - Incremente le tableau userLiked de l'userId de l'utilisateur
   const handleLikes = () => {
     axios
       .post(`http://localhost:3000/api/publication/${post._id}/like`)

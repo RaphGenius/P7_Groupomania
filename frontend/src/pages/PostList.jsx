@@ -7,6 +7,7 @@ export default function PostList() {
   // State
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState([]);
+
   //Avoir les publications
   const getPost = async () => {
     axios
@@ -18,13 +19,13 @@ export default function PostList() {
         console.log(err);
       });
   };
+  // Recupere les informations de l'utilisateur
   useEffect(() => {
-    getPost();
     axios
       .get(`http://localhost:3000/api/auth/user`)
       .then((res) => {
         setUser(res.data);
-        return;
+        getPost();
       })
       .catch((err) => {
         console.log(err);

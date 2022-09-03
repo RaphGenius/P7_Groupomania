@@ -1,9 +1,7 @@
 const Publication = require("../models/publication");
 const fs = require("fs");
 const moment = require("moment");
-const { log } = require("console");
 moment().format();
-/* const date = `${day}/${mouth}/${years}`; */
 const date = moment().format("Do MMM YYYY");
 
 exports.createPublication = (req, res, next) => {
@@ -72,12 +70,6 @@ exports.deletePublication = (req, res, next) => {
     })
     .catch((error) => res.status(500).json(console.log(error)));
 };
-/* exports.getOnePublication = (req, res, next) => {
-  // Permet de voir une publication avec son id ////  :id indique à express que c'est dynamique
-  Publication.findOne({ _id: req.params.id }) // .findOne permet de trouver un élément à l'aide d'un paramètre
-    .then((publication) => res.status(200).json(publication))
-    .catch((error) => res.status(404).json({ error }));
-}; */
 
 exports.getAllPublication = (req, res) => {
   // Permet de voir toutes les publication

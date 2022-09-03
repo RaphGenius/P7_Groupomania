@@ -5,6 +5,7 @@ export default function CardProfil({ user, navigate }) {
   //State
   const [myPosts, setMyPosts] = useState([]);
   //Comportement
+  //Recupère les postes de l'utilisateur
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/publication/${user._id}`)
@@ -16,6 +17,7 @@ export default function CardProfil({ user, navigate }) {
       });
   }, [user._id]);
 
+  //Permet la suppression du compte de l'utilisateur
   const handleDelete = () => {
     axios
       .delete(`http://localhost:3000/api/auth/user/`)

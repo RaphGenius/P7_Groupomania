@@ -10,6 +10,7 @@ export default function Login({ setIsLogin }) {
   const [isLogError, setIsLogError] = useState(false);
   //comportement
 
+  // Permet de se loger
   const onSubmit = (data) => {
     axios
       .post("http://localhost:3000/api/auth/login", data)
@@ -23,7 +24,7 @@ export default function Login({ setIsLogin }) {
         setIsLogError(true);
       });
   };
-
+  // Affiche le component login ou signup en fonction de si true ou false
   const handleLogin = () => {
     setIsLogin(false);
   };
@@ -73,9 +74,9 @@ export default function Login({ setIsLogin }) {
             Connexion
           </button>
         </div>
-        {isLogError ? (
+        {isLogError && (
           <p className="errorMsg">Mail et/ou mot de passe incorrecte</p>
-        ) : null}
+        )}
       </form>
       <button
         className="notSign"

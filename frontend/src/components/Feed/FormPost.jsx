@@ -6,19 +6,18 @@ export default function FormPost({ user, getPost }) {
 
   // Comportement
 
+  //Permet de creer un poste avec les informations nécessaires
   const onSubmit = (data) => {
     const formdata = new FormData();
     formdata.append("content", data.content);
     formdata.append("image", data.imageUrl[0]);
     formdata.append("firstName", user.firstname);
     formdata.append("lastName", user.lastname);
-    console.log(formdata);
-
+    console.log("La data est ==" + data.imageUrl[0]);
     // On envoie les informations
     axios
       .post("http://localhost:3000/api/publication", formdata)
       .then((res) => {
-        console.log(res);
         getPost();
         handleReset();
       })
@@ -26,6 +25,7 @@ export default function FormPost({ user, getPost }) {
         console.log(err);
       });
   };
+  //Permet de reset le formulaire
   const handleReset = () => {
     reset(
       {

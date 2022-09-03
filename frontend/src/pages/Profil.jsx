@@ -12,7 +12,7 @@ export default function Profil() {
   const navigate = useNavigate();
   //Comportement
 
-  //Avoir le profil utilisateur
+  //Recupere le profil utilisateur
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/auth/user/`)

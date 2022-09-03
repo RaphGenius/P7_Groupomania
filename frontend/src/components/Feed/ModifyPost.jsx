@@ -6,29 +6,31 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
   const { register, handleSubmit } = useForm();
 
   //Comportement
+  //Permet d'envoyer les datas au backend et de modifier le psote
   const onSubmit = (data) => {
     const formdata = new FormData();
     formdata.append("content", data.content);
-    formdata.append("image", data.imageUrl[1]);
-    console.log(formdata);
+    formdata.append("image", data.imageUrl[0]);
+    console.log("La data est ==" + { data });
     axios
       .put(`http://localhost:3000/api/publication/${post._id}`, formdata)
       .then((res) => {
-        console.log(res);
         getPost();
+        setIsModify(false);
       })
       .catch((err) => {
         console.log(err);
-      })
-      .finally(() => {
-        setIsModify(false);
       });
   };
 
   //Render
   return (
     <div>
-      <form action="submit" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        action="submit"
+        onSubmit={handleSubmit(onSubmit)}
+        encType="multipart/form-data;"
+      >
         <div className="container-user">
           <p className="creator-post">
             {post.firstName} {post.lastName}
@@ -52,9 +54,6 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
           <img className="picture" src={post.imageUrl} alt="salut" />
         </div>
         <div className="container-modify-post">
-          <button type="submit" className="btn hovermodifypost">
-            Confirmer
-          </button>
           <label htmlFor="file" className="btn hovermodifypost">
             Modifier image
           </label>
@@ -66,6 +65,9 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
             className="input-file-upload "
             {...register("imageUrl")}
           />
+          <button type="submit" className="btn hovermodifypost">
+            Confirmer
+          </button>
         </div>
       </form>
     </div>

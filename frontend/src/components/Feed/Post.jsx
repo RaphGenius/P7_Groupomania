@@ -7,8 +7,9 @@ export default function Post({ post, getPost, user }) {
   // State
   const [isModify, setIsModify] = useState(false);
   // Comportement
+
+  // Permet de supprimer le post
   const handleDelete = (id) => {
-    // Verifier si on a autorisation
     axios
       .delete(`http://localhost:3000/api/publication/${id}`)
       .then((res) => {
@@ -18,7 +19,7 @@ export default function Post({ post, getPost, user }) {
         console.log(err);
       });
   };
-
+  // Verifie la state pour afficher la fonction de modification de poste
   const handleModify = () => {
     isModify ? setIsModify(false) : setIsModify(true);
   };

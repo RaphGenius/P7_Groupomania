@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/Groupomania Logos/groupomania_transparentr.png";
 export default function NavBarPostList({ user }) {
   // State
+
+  // Affiche le bouton back ou profil en fonction de la page sur laquelle on se trouve
   const lienPost = "/postlist";
   const windowLoc = window.location.pathname;
   const handleDisconnect = () => {

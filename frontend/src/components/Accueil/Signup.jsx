@@ -10,16 +10,17 @@ export default function Signup({ setIsLogin }) {
   const [errorMsg, setErrorMsg] = useState("");
   //Comportement
 
+  // Permet la création du compte + lance le login en même temps
   const onSubmit = (data) => {
+    //Creation du compte
     axios
       .post("http://localhost:3000/api/auth/signup", data)
       .then((res) => {
-        console.log(res);
+        //Connexion au site
         axios
           .post("http://localhost:3000/api/auth/login", data)
           .then((res) => {
             localStorage.setItem("token", res.data.token);
-            console.log(res);
             navigate("/postlist");
           })
           .catch((err) => {
@@ -28,7 +29,6 @@ export default function Signup({ setIsLogin }) {
       })
       .catch((err) => {
         console.log(err);
-        console.log(err.response.data.error);
         setErrorMsg(err.response.data.error);
       });
   };

@@ -26,6 +26,7 @@ export default function Accueil() {
           </div>
         </div>
         <div className="container-logsign">
+          {/* Defini si on affiche le component login ou Signup */}
           {isLogin ? (
             <Login setIsLogin={setIsLogin} />
           ) : (
