@@ -48,10 +48,19 @@ export default function FormPost({ user, getPost }) {
         onSubmit={handleSubmit(onSubmit)}
         className="formulaire-formpost"
         encType="multipart/form/data"
+        name="formulaire de post"
       >
-        <label htmlFor="content"></label>
+        <label
+          htmlFor="content"
+          aria-label="Votre message"
+          className="infoAvantPost"
+        >
+          <span>Partagez avec vos collègues!</span>
+        </label>
         <input
+          id="content"
           type="text"
+          name="content"
           placeholder="Votre message"
           className="message-formpost"
           maxLength={240}

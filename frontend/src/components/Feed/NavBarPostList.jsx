@@ -14,8 +14,13 @@ export default function NavBarPostList({ user }) {
   //Render
   return (
     <nav className="navPostList">
-      <img src={logo} alt="Logo" className="logoPostList trente" />
-
+      <h1 className="logoPostList trente">
+        <img
+          src={logo}
+          alt="Logo de de Groupomania"
+          className="logoPostList trente"
+        />
+      </h1>
       <ul className="listNavBar trente">
         {windowLoc === lienPost ? (
           <li className="elementNavBar backArrow">

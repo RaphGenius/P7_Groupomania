@@ -60,3 +60,9 @@
 .label-file-upload:active {
   color: black;
 }
+.infoAvantPost {
+  text-align: center;
+  color: #fd2d01;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
