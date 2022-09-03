@@ -26,7 +26,6 @@ exports.createPublication = (req, res, next) => {
 };
 
 exports.modifyPublication = (req, res, next) => {
-  console.log("MON REQ FILE EST ===" + req.file);
   const publicationObject = req.file
     ? {
         ...req.body,

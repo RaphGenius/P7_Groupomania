@@ -16,7 +16,6 @@ export default function Login({ setIsLogin }) {
       .post("http://localhost:3000/api/auth/login", data)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        console.log(res);
         navigate("/postlist");
       })
       .catch((err) => {

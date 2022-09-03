@@ -13,7 +13,6 @@ export default function FormPost({ user, getPost }) {
     formdata.append("image", data.imageUrl[0]);
     formdata.append("firstName", user.firstname);
     formdata.append("lastName", user.lastname);
-    console.log("La data est ==" + data.imageUrl[0]);
     // On envoie les informations
     axios
       .post("http://localhost:3000/api/publication", formdata)

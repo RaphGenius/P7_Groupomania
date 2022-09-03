@@ -22,7 +22,6 @@ export default function CardProfil({ user, navigate }) {
     axios
       .delete(`http://localhost:3000/api/auth/user/`)
       .then((res) => {
-        console.log(res);
         localStorage.clear();
         navigate("/");
       })
