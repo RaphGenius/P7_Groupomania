@@ -16,7 +16,11 @@ export default function Accueil() {
       <div className="all-accueil">
         <div className="container-infogroupo">
           <div className="container-logoAccueil">
-            <img className="image-accueil" src={logo} alt="" />
+            <img
+              className="image-accueil"
+              src={logo}
+              alt="Logo de Groupomania"
+            />
           </div>
           <div className="container-info-groupomania">
             <h2 className="info-groupomania">

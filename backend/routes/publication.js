@@ -12,5 +12,5 @@ router.post("/", auth, multer, publicationController.createPublication); // Cree
 router.put("/:id", auth, multer, publicationController.modifyPublication); // Modifier une publication
 router.delete("/:id", auth, publicationController.deletePublication); // Supprimer une publication
 router.post("/:id/like", auth, publicationLikeCOntroller.likePublication); // Liker une publication
-router.get("/:id", auth, publicationController.getAllMyPublication);
+router.get("/:id", auth, publicationController.getAllMyPublication); // Avoir tous ses propres postes
 module.exports = router;

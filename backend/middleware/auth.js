@@ -7,11 +7,11 @@ module.exports = (req, res, next) => {
     const admin = decodedToken.admin;
     const userId = decodedToken.userId;
     req.auth = {
-      userId,
-      admin,
+      userId: userId,
+      admin: admin,
     };
     next();
   } catch (error) {
-    res.status(401).json({ error: error });
+    res.status(401).json({ error });
   }
 };

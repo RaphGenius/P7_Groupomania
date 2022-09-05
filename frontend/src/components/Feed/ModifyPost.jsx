@@ -11,7 +11,6 @@ export default function ModifyPost({ post, setIsModify, getPost }) {
     const formdata = new FormData();
     formdata.append("content", data.content);
     formdata.append("image", data.imageUrl[0]);
-    console.log("La data est ==" + { data });
     axios
       .put(`http://localhost:3000/api/publication/${post._id}`, formdata)
       .then((res) => {

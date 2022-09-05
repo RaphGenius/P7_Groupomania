@@ -15,6 +15,7 @@ export default function Login({ setIsLogin }) {
     axios
       .post("http://localhost:3000/api/auth/login", data)
       .then((res) => {
+        localStorage.clear();
         localStorage.setItem("token", res.data.token);
         navigate("/postlist");
       })

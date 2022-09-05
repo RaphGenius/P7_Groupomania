@@ -16,7 +16,7 @@ export default function FormPost({ user, getPost }) {
     // On envoie les informations
     axios
       .post("http://localhost:3000/api/publication", formdata)
-      .then((res) => {
+      .then(() => {
         getPost();
         handleReset();
       })

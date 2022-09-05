@@ -60,7 +60,6 @@ exports.login = (req, res, next) => {
               res.status(200).json({
                 userId: user._id,
                 token: jwt.sign(
-                  // .sign permet de creer une token avec 3 argument
                   { userId: user._id, admin: user.admin }, // 1. on verifie l'userId de l'élement avec l'user._id de l'utilisateur qui fait la demande
                   process.env.SECRETTOKEN, // 2. Le code qui permet de creer un token
                   { expiresIn: "24h" } // 3. Le temps d'expiration du token
@@ -78,23 +77,20 @@ exports.login = (req, res, next) => {
     });
 };
 
-exports.getProfil = (req, res, next) => {
+exports.getProfil = (req, res) => {
   User.findOne({ _id: req.auth.userId }) // .findOne permet de trouver un élément à l'aide d'un paramètre
     .then((user) => res.status(200).json(user))
     .catch((error) => res.status(404).json({ error }));
 };
 
-exports.deleteProfil = (req, res, next) => {
+exports.deleteProfil = (req, res) => {
   User.findOne({ _id: req.auth.userId })
-    .then((user) => {
-      /* const filename = profil.imageUrl.split("/image/")[1]; */
-      /*  fs.unlink(`image/${filename}`, () => { */
+    .then(() => {
       User.deleteOne({ _id: req.auth.userId })
         .then(() => {
           res.status(200).json({ message: "objet supprimé" });
         })
         .catch((error) => res.status(401).json({ error }));
-      /*  }); */
     })
     .catch((error) => res.status(500).json(console.log(error)));
 };

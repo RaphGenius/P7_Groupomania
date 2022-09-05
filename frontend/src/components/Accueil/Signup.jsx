@@ -15,11 +15,12 @@ export default function Signup({ setIsLogin }) {
     //Creation du compte
     axios
       .post("http://localhost:3000/api/auth/signup", data)
-      .then((res) => {
+      .then(() => {
         //Connexion au site
         axios
           .post("http://localhost:3000/api/auth/login", data)
           .then((res) => {
+            localStorage.clear();
             localStorage.setItem("token", res.data.token);
             navigate("/postlist");
           })
